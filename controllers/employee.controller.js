@@ -29,7 +29,7 @@ class EmployeeController {
       .then((result) => {
         console.log(result);
         const { id, name, department, role } = result.dataValues;
-        res.send({ id, name, department, role });
+        res.redirect('/')
       })
       .catch((err) => {
         if (err.errors) {
