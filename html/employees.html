@@ -39,5 +39,34 @@
         </tr>
       </tbody>
     </table>
+
+    <script>
+      loadIntoTable = async (table) => {
+        const tableHead = table.querySelector("thead");
+        const tableBody = table.querySelector("tbody");
+        const response = await fetch("http://localhost:7575/getEmployees");
+        let data = await response.json();
+        console.log(data);
+        console.log(data[0]);
+
+        tableBody.innerHTML = `
+
+            <tbody>${data
+              .map((itm) => {
+                console.log(itm);
+                return `<tr>
+                     <td>${itm.id}</td>
+                     <td>${itm.name}</td>
+                     <td>${itm.department}</td>
+                     <td>${itm.role}</td>
+                  </tr>`;
+              }, "")
+              .join("")}</tbody>
+        `;
+      };
+
+      loadIntoTable(document.querySelector("table"));
+
+    </script>
   </body>
 </html>
