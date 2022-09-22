@@ -2,7 +2,7 @@
   "name": "GlassBoxWS",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Tamir ATia",
+  "author": "Tamir Atia",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",

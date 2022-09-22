@@ -1,49 +1,38 @@
 const EmployeeModel = require("../models/employee.model");
 
 const HttpException = require("../utils/HttpException.utils");
-const { validationResult } = require("express-validator");
 
 class EmployeeController {
   getEmployees = async (req, res) => {
-    await EmployeeModel.findAll().then(data => {
-        console.log(res)
+    await EmployeeModel.findAll()
+      .then((data) => {
+
         res.send(data);
-        
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving tutorials."
+            err.message || "Some error occurred.",
         });
       });
   };
 
   addEmployee = async (req, res, next) => {
-    this.checkValidation(req);
     const { id, name, department, role } = req.body;
     console.log(id, name, department, role);
-    if (!id || !name || !department || !role) {
-      throw new HttpException(401, "Missing Parameters");
-    }
+
     await EmployeeModel.create({ id, name, department, role })
       .then((result) => {
         console.log(result);
-        const { id, name, department, role } = result.dataValues;
-        res.redirect('/')
+        res.redirect("/");
       })
       .catch((err) => {
         if (err.errors) {
           throw new HttpException(401, "Unable to add employee!", err.errors);
         }
-        throw new HttpException(401, "Unexpected Eroor happend!", err);
+        throw new HttpException(401, "Unexpected Error happened!", err);
       });
   };
-
-  checkValidation = (req) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      throw new HttpException(400, "Validation failed", errors);
-    }
-  };
 }
+
 module.exports = new EmployeeController();

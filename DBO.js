@@ -1,7 +1,6 @@
 const dotenv = require("dotenv");
 dotenv.config();
-const { Sequelize, DataTypes } = require("sequelize");
-// const { now } = require('sequelize/types/utils');
+const { Sequelize } = require("sequelize");
 const mysql = require("mysql2");
 
 class DBConnection {
@@ -16,7 +15,7 @@ class DBConnection {
         dialect: "mysql",
       }
     );
-    // this.db.config({acquireTimeout:30000})
+
     this.checkConnection();
     this.sequelize.sync();
   }
