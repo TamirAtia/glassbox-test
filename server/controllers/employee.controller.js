@@ -1,18 +1,15 @@
 const EmployeeModel = require("../models/employee.model");
-
 const HttpException = require("../utils/HttpException.utils");
 
 class EmployeeController {
   getEmployees = async (req, res) => {
     await EmployeeModel.findAll()
       .then((data) => {
-
         res.send(data);
       })
       .catch((err) => {
         res.status(500).send({
-          message:
-            err.message || "Some error occurred.",
+          message: err.message || "Some error occurred.",
         });
       });
   };
@@ -22,8 +19,7 @@ class EmployeeController {
     console.log(id, name, department, role);
 
     await EmployeeModel.create({ id, name, department, role })
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         res.redirect("/");
       })
       .catch((err) => {

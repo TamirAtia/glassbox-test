@@ -1,5 +1,7 @@
 node_modules/
 dist/
+.vscode/
+yarn-error.log
 npm-debug.*
 *.jks
 *.p8
@@ -7,3 +9,4 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
+ec2-user"

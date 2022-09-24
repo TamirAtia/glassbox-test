@@ -1,5 +1,5 @@
 const { DataTypes} = require("sequelize");
-const DBO = require('../DBO')
+const DBO = require('../DB/DBO')
 const db = DBO.sequelize
     
 const EmployeeModel = db.define("employee", {

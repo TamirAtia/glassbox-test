@@ -6,15 +6,16 @@ const app = express();
 app.use(express.urlencoded({ extended: true, limit: "2mb" }));
 dotenv.config();
 app.use(express.json({ limit: "2mb" }));
+var path = require("path");
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
+  res.sendFile(path.resolve("../client/index.html") );
 });
 app.get("/addEmployee", (req, res) => {
-  res.sendFile(__dirname + "/html/addEmployee.html");
+  res.sendFile(path.resolve("../client/html/addEmployee.html"));
 });
 app.get("/employees", (req, res) => {
-  res.sendFile(__dirname + "/html/employees.html");
+  res.sendFile(path.resolve("../client/html/employees.html") );
 });
 
 app.use("/", EmployeeRouter);
