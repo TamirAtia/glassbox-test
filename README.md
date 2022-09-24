@@ -1,5 +1,5 @@
 # Glassbox-test
-
+employee management CRM system
 
 
 ## Features
@@ -24,11 +24,23 @@
 ### GET Routes
 
 - visit http://localhost:7575
+
+
+
   - /employees
   - /addEmployee
   
+  ## Pages
+  -	`Main menu page - Two simple buttons leading to the other pages.`
+  - `Add employee page - A simple form for adding a new employee with the above details`
+  - `Employees page - Just showing a table of all the employee`
+  
     <img src="screenshots/main menu.jpg?raw=true" />
+    
+ 
     <img src="screenshots/AddEmployee.jpg?raw=true" />
+    
+
     <img src="screenshots/EmployeesTable.jpg?raw=true" />
 
 
