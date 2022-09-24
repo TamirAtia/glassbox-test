@@ -6,15 +6,10 @@ const mysql = require("mysql2");
 class DBConnection {
   constructor() {
     this.buildDB();
-    this.sequelize = new Sequelize(
-      'test',
-      'root',
-      'qwerty',
-      {
-        host:'localhost',
-        dialect: "mysql",
-      }
-    );
+    this.sequelize = new Sequelize("test", "root", "qwerty", {
+      host: "localhost",
+      dialect: "mysql",
+    });
 
     this.checkConnection();
     this.sequelize.sync();
@@ -31,9 +26,9 @@ class DBConnection {
   buildDB = async () => {
     // Open the connection to MySQL server
     this.connection = mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: 'qwerty',
+      host: "localhost",
+      user: "root",
+      password: "qwerty",
     });
     try {
       this.connection.connect();
@@ -50,14 +45,9 @@ class DBConnection {
     } finally {
       // Close the connection
       this.connection.end();
-      return
+      return;
     }
   };
 }
-// like ENUM
-const HttpStatusCodes = Object.freeze({
-  ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: 422,
-  ER_DUP_ENTRY: 409,
-});
 
 module.exports = new DBConnection();
