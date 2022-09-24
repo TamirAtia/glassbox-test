@@ -23,10 +23,7 @@ employee management CRM system
 
 ### GET Routes
 
-- visit http://localhost:7575
-
-
-
+  - visit http://localhost:7575
   - /employees
   - /addEmployee
   
